@@ -28,7 +28,11 @@
       </p>
     </div>
 
-    <form action="" class="signup-form pb-16px">
+    <form
+      [formGroup]="signupForm"
+      (ngSubmit)="submitForm()"
+      class="signup-form pb-16px"
+    >
       <div class="form-group">
         <label
           for="name"
@@ -47,7 +51,7 @@
         <label
           for="email"
           class="block text-[14px] text-[#041B3C] font-medium mb-2"
-          >Name</label
+          >Email</label
         >
         <input
           formControlName="email"
