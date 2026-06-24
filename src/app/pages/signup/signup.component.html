@@ -16,15 +16,102 @@
 </header>
 
 <section class="signup-section bg-white rounded-lg p-12 max-w-xl mx-auto">
-    <div class="container">
-        <div class="section-title pb-10">
-            <h1 class="font-semibold text-[#041B3C] leading-9 tracking-[-0.75px] text-center text-[30px]">Create your workspace</h1>
-            <p class="text-[14px] text-[#4F5F7B] text-center leading-5">Join the editorial approach to task management</p>
-
-        </div>
-
-        <form action="" class="signup-form pb-16px">
-
-        </form>
+  <div class="container">
+    <div class="section-title pb-10">
+      <h1
+        class="font-semibold text-[#041B3C] leading-9 tracking-[-0.75px] text-center text-[30px]"
+      >
+        Create your workspace
+      </h1>
+      <p class="text-[14px] text-[#4F5F7B] text-center leading-5">
+        Join the editorial approach to task management
+      </p>
     </div>
+
+    <form action="" class="signup-form pb-16px">
+      <div class="form-group">
+        <label
+          for="name"
+          class="block text-[14px] text-[#041B3C] font-medium mb-2"
+          >Name</label
+        >
+        <input
+          formControlName="name"
+          type="text"
+          id="name"
+          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <div class="form-group">
+        <label
+          for="email"
+          class="block text-[14px] text-[#041B3C] font-medium mb-2"
+          >Name</label
+        >
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <div class="form-group">
+        <label
+          for="jobTitle"
+          class="block text-[14px] text-[#041B3C] font-medium mb-2"
+          >Job Title</label
+        >
+        <input
+          formControlName="jobTitle"
+          type="text"
+          id="jobTitle"
+          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <div class="form-group">
+        <label
+          for="password"
+          class="block text-[14px] text-[#041B3C] font-medium mb-2"
+          >Password</label
+        >
+        <input
+          formControlName="password"
+          type="password"
+          id="password"
+          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <div class="form-group">
+        <label
+          for="confirmPassword"
+          class="block text-[14px] text-[#041B3C] font-medium mb-2"
+          >Confirm Password</label
+        >
+        <input
+          formControlName="confirmPassword"
+          type="password"
+          id="confirmPassword"
+          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
+      >
+        Create Account
+      </button>
+    </form>
+
+    <footer class="placeholder-mist-800">
+      <p>
+        Already have an account?
+        <a href="/signin" class="text-blue-500 hover:underline">Log in</a>
+      </p>
+    </footer>
+  </div>
 </section>
