@@ -1,5 +1,7 @@
-<header>
-  <div class="container px-10 py-6">
+<div class="pt-20 px-6 pb-12">
+
+<header class="fixed top-0 left-0 right-0 flex justify-between items-center h-16 bg-[#F9F9FFCC] backdrop-blur-md">
+  <div class="container px-6 ">
     <div class="logo-item flex items-center gap-2">
       <div class="logo-img">
         <img src="../../../assets/signup/logo.png" alt="Logo" />
@@ -110,9 +112,23 @@
         </div>
       </div>
 
+      <div class="rememberme-container px-1 pb-2 flex flex-row justify-start items-center gap-3">
+          <input
+            type="checkbox"
+            id="rememberMe"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+          />
+          <label
+            for="rememberMe"
+            class="text-[14px] text-[#041B3C] font-medium"
+            >Remember Me</label
+          >
+        
+      </div>
+
       <button
         type="submit"
-        class="bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0_4px_6px_-4px_#003D9B1A,0_10px_15px_-3px_#003D9B1A] text-white py-2 px-4 rounded-lg font-semibold text-[16px] leading-5 text-center w-full h-14 flex flex-row gap-2 justify-center items-center mt-4 cursor-pointer"
+        class="bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0_4px_6px_-4px_#003D9B1A,0_10px_15px_-3px_#003D9B1A] text-white h-14 rounded-lg font-semibold text-[16px] leading-5 text-center w-full flex flex-row gap-2 justify-center items-center mt-4 cursor-pointer"
       >
         <span class="font-semibold text-[16px] leading-6 text-center text-white"
           >Sign In
@@ -130,3 +146,14 @@
     </form>
   </div>
 </section>
+
+
+    <footer class="placeholder-mist-800 pt-41.75">
+      <p>
+        Don't have an account?
+        <a href="/signin" class="text-blue-500 hover:underline">Sign up</a>
+      </p>
+    </footer>
+
+</div>
+
