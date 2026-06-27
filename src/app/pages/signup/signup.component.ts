@@ -17,6 +17,10 @@ import { AuthenticationService } from '../../core/services/auth-service/authenti
   styleUrl: './signup.component.scss',
 })
 export class SignupComponent implements OnInit {
+  showPassword = false;
+  msgError = '';
+  successMsg = '';
+
   signupForm!: FormGroup;
   private readonly authService = inject(AuthenticationService);
 

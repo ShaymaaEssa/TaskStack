@@ -1,5 +1,5 @@
 <div
-  class="pt-20 px-6 pb-12 w-full h-full lg:py-36.75 lg:px-6 lg:h-fit lg:min-h-220"
+  class="pt-20 px-6 pb-18.75 w-full h-full lg:py-36.75 lg:px-6 lg:h-fit lg:min-h-220"
 >
   <header
     class="fixed top-0 left-0 right-0 flex items-center justify-between h-16 bg-background/80 backdrop-blur-md"
@@ -25,108 +25,164 @@
       class="signup-container w-full lg:max-w-120 lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-146.5 lg:h-fit"
     >
       <div
-        class="section-title h-37 w-full flex flex-col justify-end lg:justify-center pb-10 lg:gap-2 lg:mt-12 lg:ms-12 lg:w-[384px]"
+        class="section-title h-fit min-h-[165.5px] pt-8 pb-10 w-full lg:justify-center lg:gap-2 lg:mt-12 lg:ms-12 lg:w-[384px]"
       >
-        <h1
-          class="font-semibold text-heading leading-8 tracking-[-0.6px] text-center text-[24px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
+        <div
+          class="section-title-container w-full h-fit min-h-[93.5px] flex flex-col justify-start gap-[6.88px]"
         >
-          Create your workspace
-        </h1>
-        <p class="text-[14px] leading-5 text-body text-center">
-          Join the editorial approach to task management
-        </p>
+          <h1
+            class="font-semibold text-heading leading-10 tracking-[-0.8px] text-[28px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
+          >
+            Create your workspace
+          </h1>
+          <p class="text-[14px] leading-[22.75px] text-body pb-[0.63px] w-85.5">
+            Join the curated environment for institutional trust and task
+            precision.
+          </p>
+        </div>
       </div>
 
-      <div class="max-w-[384px] w-[85.5] pb-4 mx-auto">
+      <div class="w-fill min-w-85.5 pb-4 h-fit min-h-[584.5px] mx-auto">
         <form
           [formGroup]="signupForm"
           (ngSubmit)="submitForm()"
-          class="signup-form pb-16px mx-auto flex flex-col gap-6 w-full"
+          class="signup-form flex flex-col gap-6 w-full h-fit min-h-[568.5px]"
         >
-          <div class="form-group flex flex-col">
+          <div class="form-group flex flex-col w-fill h-[78.5px]">
             <label
               for="name"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
-              >Name</label
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+              >Full Name</label
             >
             <input
               formControlName="name"
               type="text"
               id="name"
-              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-12"
+              placeholder="Enter your full name"
+              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
             />
           </div>
 
           <div class="form-group flex flex-col gap-2">
             <label
               for="email"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
               >Email</label
             >
             <input
               formControlName="email"
               type="email"
               id="email"
-              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="username@company.com"
+              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
             />
           </div>
 
           <div class="form-group flex flex-col gap-2">
             <label
               for="jobTitle"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
               >Job Title</label
             >
             <input
               formControlName="jobTitle"
               type="text"
               id="jobTitle"
-              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="eg. Project Manager"
+              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
             />
           </div>
 
-          <div class="form-group flex flex-col gap-2">
-            <label
-              for="password"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
-              >Password</label
-            >
-            <input
-              formControlName="password"
-              type="password"
-              id="password"
-              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+          <div class="password-grid flex flex-col gap-6">
+            <div class="form-group flex flex-col gap-2">
+              <label
+                for="password"
+                class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+                >Password</label
+              >
+              <div class="relative">
+                <button
+                  class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
+                  (click)="showPassword = !showPassword"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#737685"
+                  >
+                    <path
+                      d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
+                    />
+                  </svg>
+                </button>
 
-          <div class="form-group flex flex-col gap-2">
-            <label
-              for="confirmPassword"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
-              >Confirm Password</label
-            >
-            <input
-              formControlName="confirmPassword"
-              type="password"
-              id="confirmPassword"
-              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+                <input
+                  formControlName="password"
+                  [type]="showPassword ? 'text' : 'password'"
+                  id="password"
+                  class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+
+            <div class="form-group flex flex-col gap-2">
+              <label
+                for="confirmPassword"
+                class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+                >Confirm Password</label
+              >
+              <div class="relative">
+                <button
+                  class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
+                  (click)="showPassword = !showPassword"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="#737685"
+                  >
+                    <path
+                      d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
+                    />
+                  </svg>
+                </button>
+
+                <input
+                  formControlName="password"
+                  [type]="showPassword ? 'text' : 'password'"
+                  id="password"
+                  class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
           </div>
 
           <button
             type="submit"
-            class="bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
+            class="h-14 bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
           >
             Create Account
           </button>
         </form>
       </div>
 
-      <footer class="placeholder-mist-800">
-        <p>
-          Already have an account?
-          <a href="/signin" class="text-blue-500 hover:underline">Log in</a>
-        </p>
+      <footer
+        class="placeholder-mist-800 w-full h-fit min-h-[99.5px] pt-[47.5px] pb-8"
+      >
+        <div class="flex flex-row justify-center gap-1">
+          <p class="text-[14px] leading-5 text-label">
+            Already have an account?
+          </p>
+          <a
+            href="/login"
+            class="text-[#003D9B] text-[14px] leading-5 font-semibold"
+            >Log in</a
+          >
+        </div>
       </footer>
     </div>
   </section>
