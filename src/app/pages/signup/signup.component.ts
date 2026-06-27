@@ -107,4 +107,23 @@ export class SignupComponent implements OnInit {
       },
     });
   }
+
+  passwordMeetsLength(): boolean {
+    const password = this.signupForm.get('password')?.value || '';
+    return password.length >= 8;
+  }
+
+  passwordHasUpperLowerDigit(): boolean {
+    const password = this.signupForm.get('password')?.value || '';
+
+    return (
+      /[A-Z]/.test(password) && /[a-z]/.test(password) && /\d/.test(password)
+    );
+  }
+
+  passwordHasSpecialCharacter(): boolean {
+    const password = this.signupForm.get('password')?.value || '';
+
+    return /[!@#$%^&*]/.test(password);
+  }
 }
