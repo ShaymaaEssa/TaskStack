@@ -31,11 +31,11 @@
       </p>
     </div>
 
-    <div class="max-w-[384px] w-[85.5] h-83.5 pb-4 mx-auto">
+    <div class="max-w-[384px] w-[85.5] pb-4 mx-auto">
       <form
         [formGroup]="loginForm"
         (ngSubmit)="submitForm()"
-        class="signup-form pb-16px mx-auto flex flex-col gap-6 w-full h-85.5"
+        class="signup-form pb-16px mx-auto flex flex-col gap-6 w-full"
       >
         <div class="form-group flex flex-col gap-2">
           <label
@@ -187,6 +187,37 @@
           <label for="rememberMe" class="text-[14px] text-heading font-medium"
             >Remember Me</label
           >
+        </div>
+
+        <div class="login-msg">
+          @if (msgError) {
+            <div
+              class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Danger</span>
+              <div>
+                {{ msgError }}
+              </div>
+            </div>
+          }
+
+          @if (successMsg) {
+            <p class="w-[75%] mx-auto bg-green-400 text-white border py-6 px-2">
+              {{ successMsg }}
+            </p>
+          }
         </div>
 
         <button
