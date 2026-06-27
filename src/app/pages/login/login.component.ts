@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required]),
+      rememberMe: new FormControl(false),
     });
   }
 
@@ -51,6 +52,16 @@ export class LoginComponent implements OnInit {
         this.successMsg = 'Login Successfully!';
 
         alert(this.successMsg);
+
+        const isRememberMeChecked = this.loginForm.get('rememberMe')?.value;
+        console.log(isRememberMeChecked);
+        if (isRememberMeChecked) {
+          const expirationDate = Date.now() + 30 * 24 * 60 * 60 * 1000;
+          localStorage.setItem(
+            environment.tokenExpireDate,
+            expirationDate.toString(),
+          );
+        }
         setTimeout(() => {
           //1. save token
           localStorage.setItem(environment.token, res.access_token);
