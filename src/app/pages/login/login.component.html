@@ -1,4 +1,4 @@
-<div class="pt-20 px-6 pb-12">
+<div class="pt-20 px-6 pb-12 w-full h-full lg:py-36.75 lg:px-6 lg:h-fit lg:min-h-220 ">
   <header
     class="fixed top-0 left-0 right-0 flex items-center justify-between h-16 bg-background/80 backdrop-blur-md"
   >
@@ -19,9 +19,11 @@
   </header>
 
   <section class="login-section">
-    <div class="section-title h-37 w[232.14px] flex flex-col justify-end pb-10">
+    <div class="login-container w-full lg:max-w-120 lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-146.5 lg:h-fit">
+
+            <div class="section-title h-37  w-full flex flex-col justify-end lg:justify-center pb-10 lg:gap-2 lg:mt-12 lg:ms-12 lg:w-[384px] ">
       <h1
-        class="font-semibold text-heading leading-8 tracking-[-0.6px] text-center text-[24px]"
+        class="font-semibold text-heading leading-8 tracking-[-0.6px] text-center text-[24px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
       >
         Welcome Back
       </h1>
@@ -240,18 +242,25 @@
         </button>
       </form>
     </div>
-  </section>
 
-  <footer class="placeholder-mist-800 pt-41.75">
+
+      <footer class="placeholder-mist-800 pt-41.75 lg:pt-8 lg:border-t lg:border-borderfooter lg:w-[384px] lg:mx-auto lg:pb-8">
     <div class="pt-12">
       <div class="flex flex-row gap-1 items-center justify-center">
-        <p class="text-[14px] leading-5 text-body]">Don't have an account?</p>
+        <p class="text-[14px] leading-5 text-body ">Don't have an account?</p>
         <a
-          href="/signin"
+          href="/signup"
           class="font-semibold text-[14px] leading-5 text-primary"
           >Sign up</a
         >
       </div>
     </div>
   </footer>
+
+
+    </div>
+
+  </section>
+
+
 </div>

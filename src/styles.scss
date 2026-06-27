@@ -11,11 +11,13 @@
   --color-input: #d7e2ff;
 
   --color-border: #d1d5db;
+  --color-borderfooter: #C3C6D626;
 
   --color-heading: #041b3c;
   --color-body: #4f5f7b;
   --color-label: #434654;
   --color-icon: #737685;
+
 
   /* ========= Fonts ========= */
 
@@ -25,4 +27,6 @@
 
   --shadow-button:
     0 4px 6px -4px rgba(0, 61, 155, 0.1), 0 10px 15px -3px rgba(0, 61, 155, 0.1);
+
+ --shadow-card: 0 24px 48px 0 rgba(4, 27, 60, 0.06);
 }
