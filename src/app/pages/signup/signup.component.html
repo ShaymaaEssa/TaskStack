@@ -1,121 +1,133 @@
-<header>
-  <div class="container px-10 py-6">
-    <div class="logo-item flex items-center gap-2">
-      <div class="logo-img">
-        <img src="../../../assets/signup/logo.png" alt="Logo" />
-      </div>
-      <div class="logo-text">
-        <h1
-          class="text-capitalize text-[#041B3C] font-bold font-[Inter] text-[20px] leading-7 tracking-[-0.5px]"
-        >
-          Taskly
-        </h1>
+<div
+  class="pt-20 px-6 pb-12 w-full h-full lg:py-36.75 lg:px-6 lg:h-fit lg:min-h-220"
+>
+  <header
+    class="fixed top-0 left-0 right-0 flex items-center justify-between h-16 bg-background/80 backdrop-blur-md"
+  >
+    <div class="container px-6">
+      <div class="logo-item flex items-center gap-2">
+        <div class="logo-img">
+          <img src="../../../assets/signup/logo.png" alt="Logo" />
+        </div>
+        <div class="logo-text">
+          <h1
+            class="text-capitalize text-heading font-bold text-[20px] leading-7 tracking-[-0.5px]"
+          >
+            Taskly
+          </h1>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<section class="signup-section bg-white rounded-lg p-12 max-w-xl mx-auto">
-  <div class="container">
-    <div class="section-title pb-10">
-      <h1
-        class="font-semibold text-[#041B3C] leading-9 tracking-[-0.75px] text-center text-[30px]"
-      >
-        Create your workspace
-      </h1>
-      <p class="text-[14px] text-[#4F5F7B] text-center leading-5">
-        Join the editorial approach to task management
-      </p>
-    </div>
-
-    <form
-      [formGroup]="signupForm"
-      (ngSubmit)="submitForm()"
-      class="signup-form pb-16px"
+  <section class="signup-section">
+    <div
+      class="signup-container w-full lg:max-w-120 lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-146.5 lg:h-fit"
     >
-      <div class="form-group">
-        <label
-          for="name"
-          class="block text-[14px] text-[#041B3C] font-medium mb-2"
-          >Name</label
-        >
-        <input
-          formControlName="name"
-          type="text"
-          id="name"
-          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      <div class="form-group">
-        <label
-          for="email"
-          class="block text-[14px] text-[#041B3C] font-medium mb-2"
-          >Email</label
-        >
-        <input
-          formControlName="email"
-          type="email"
-          id="email"
-          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      <div class="form-group">
-        <label
-          for="jobTitle"
-          class="block text-[14px] text-[#041B3C] font-medium mb-2"
-          >Job Title</label
-        >
-        <input
-          formControlName="jobTitle"
-          type="text"
-          id="jobTitle"
-          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      <div class="form-group">
-        <label
-          for="password"
-          class="block text-[14px] text-[#041B3C] font-medium mb-2"
-          >Password</label
-        >
-        <input
-          formControlName="password"
-          type="password"
-          id="password"
-          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      <div class="form-group">
-        <label
-          for="confirmPassword"
-          class="block text-[14px] text-[#041B3C] font-medium mb-2"
-          >Confirm Password</label
-        >
-        <input
-          formControlName="confirmPassword"
-          type="password"
-          id="confirmPassword"
-          class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-      </div>
-
-      <button
-        type="submit"
-        class="bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
+      <div
+        class="section-title h-37 w-full flex flex-col justify-end lg:justify-center pb-10 lg:gap-2 lg:mt-12 lg:ms-12 lg:w-[384px]"
       >
-        Create Account
-      </button>
-    </form>
+        <h1
+          class="font-semibold text-heading leading-8 tracking-[-0.6px] text-center text-[24px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
+        >
+          Create your workspace
+        </h1>
+        <p class="text-[14px] leading-5 text-body text-center">
+          Join the editorial approach to task management
+        </p>
+      </div>
 
-    <footer class="placeholder-mist-800">
-      <p>
-        Already have an account?
-        <a href="/signin" class="text-blue-500 hover:underline">Log in</a>
-      </p>
-    </footer>
-  </div>
-</section>
+      <div class="max-w-[384px] w-[85.5] pb-4 mx-auto">
+        <form
+          [formGroup]="signupForm"
+          (ngSubmit)="submitForm()"
+          class="signup-form pb-16px mx-auto flex flex-col gap-6 w-full"
+        >
+          <div class="form-group flex flex-col">
+            <label
+              for="name"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              >Name</label
+            >
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-12"
+            />
+          </div>
+
+          <div class="form-group flex flex-col gap-2">
+            <label
+              for="email"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              >Email</label
+            >
+            <input
+              formControlName="email"
+              type="email"
+              id="email"
+              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div class="form-group flex flex-col gap-2">
+            <label
+              for="jobTitle"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              >Job Title</label
+            >
+            <input
+              formControlName="jobTitle"
+              type="text"
+              id="jobTitle"
+              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div class="form-group flex flex-col gap-2">
+            <label
+              for="password"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              >Password</label
+            >
+            <input
+              formControlName="password"
+              type="password"
+              id="password"
+              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div class="form-group flex flex-col gap-2">
+            <label
+              for="confirmPassword"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              >Confirm Password</label
+            >
+            <input
+              formControlName="confirmPassword"
+              type="password"
+              id="confirmPassword"
+              class="border border-[#D1D5DB] rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
+          >
+            Create Account
+          </button>
+        </form>
+      </div>
+
+      <footer class="placeholder-mist-800">
+        <p>
+          Already have an account?
+          <a href="/signin" class="text-blue-500 hover:underline">Log in</a>
+        </p>
+      </footer>
+    </div>
+  </section>
+</div>
