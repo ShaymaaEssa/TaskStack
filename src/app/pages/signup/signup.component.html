@@ -52,7 +52,7 @@
           (ngSubmit)="submitForm()"
           class="signup-form flex flex-col gap-6 w-full h-fit min-h-[568.5px] lg:min-h-[570.5px]"
         >
-          <div class="form-group flex flex-col w-fill h-[78.5px]">
+          <div class="form-group flex flex-col w-fill min-h-[78.5px]">
             <label
               for="name"
               class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
@@ -70,6 +70,41 @@
             >
               3-50 characters, letters only.
             </p>
+
+            @if (
+              signupForm.get('name')?.errors && signupForm.get('name')?.touched
+            ) {
+              <div
+                class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert"
+              >
+                <svg
+                  class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                  <ul class="mt-1.5 list-disc list-inside">
+                    @if (signupForm.get('name')?.getError('required')) {
+                      <li>Name is Required</li>
+                    } @else if (signupForm.get('name')?.getError('minLength')) {
+                      <li>Name min length: 3</li>
+                    } @else if (signupForm.get('name')?.getError('maxLength')) {
+                      <li>Name max length: 50</li>
+                    } @else if (signupForm.get('name')?.getError('name')) {
+                      <li>Name is invalid</li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
           </div>
 
           <div class="form-group flex flex-col gap-2">
@@ -85,6 +120,37 @@
               placeholder="username@company.com"
               class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
             />
+            @if (
+              signupForm.get('email')?.errors &&
+              signupForm.get('email')?.touched
+            ) {
+              <div
+                class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert"
+              >
+                <svg
+                  class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                  <ul class="mt-1.5 list-disc list-inside">
+                    @if (signupForm.get('email')?.getError('required')) {
+                      <li>email is Required</li>
+                    } @else if (signupForm.get('email')?.getError('email')) {
+                      <li>email is invalid</li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
           </div>
 
           <div class="form-group flex flex-col gap-2">
@@ -168,6 +234,34 @@
                   placeholder="Repeat your password"
                   class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+
+                @if (
+                  signupForm.getError('mismatch') &&
+                  signupForm.get('confirmPassword')?.touched
+                ) {
+                  <div
+                    class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert"
+                  >
+                    <svg
+                      class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                      />
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                      <ul class="mt-1.5 list-disc list-inside">
+                        <li>password is not match!</li>
+                      </ul>
+                    </div>
+                  </div>
+                }
               </div>
             </div>
           </div>
