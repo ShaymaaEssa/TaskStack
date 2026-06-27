@@ -70,7 +70,8 @@
             >
               3-50 characters, letters only.
             </p>
-
+          </div>
+          <div class="name-errormsg">
             @if (
               signupForm.get('name')?.errors && signupForm.get('name')?.touched
             ) {
@@ -94,9 +95,9 @@
                   <ul class="mt-1.5 list-disc list-inside">
                     @if (signupForm.get('name')?.getError('required')) {
                       <li>Name is Required</li>
-                    } @else if (signupForm.get('name')?.getError('minLength')) {
+                    } @else if (signupForm.get('name')?.getError('minlength')) {
                       <li>Name min length: 3</li>
-                    } @else if (signupForm.get('name')?.getError('maxLength')) {
+                    } @else if (signupForm.get('name')?.getError('maxlength')) {
                       <li>Name max length: 50</li>
                     } @else if (signupForm.get('name')?.getError('name')) {
                       <li>Name is invalid</li>
@@ -201,6 +202,41 @@
                   class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
+              <div class="password-errormsg">
+                @if (
+                  signupForm.get('password')?.errors &&
+                  signupForm.get('password')?.touched
+                ) {
+                  <div
+                    class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                    role="alert"
+                  >
+                    <svg
+                      class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                      />
+                    </svg>
+                    <span class="sr-only">Danger</span>
+                    <div>
+                      <ul class="mt-1.5 list-disc list-inside">
+                        @if (signupForm.get('password')?.getError('required')) {
+                          <li>password is required</li>
+                        } @else if (
+                          signupForm.get('password')?.getError('pattern')
+                        ) {
+                          <li>password is not valid</li>
+                        }
+                      </ul>
+                    </div>
+                  </div>
+                }
+              </div>
             </div>
 
             <div class="form-group flex flex-col gap-2">
@@ -228,18 +264,20 @@
                 </button>
 
                 <input
-                  formControlName="password"
+                  formControlName="confirmPassword"
                   [type]="showPassword ? 'text' : 'password'"
-                  id="password"
+                  id="confirmPassword"
                   placeholder="Repeat your password"
                   class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
+              </div>
+              <div class="confirmpassword-errmsg">
                 @if (
-                  signupForm.getError('mismatch') &&
-                  signupForm.get('confirmPassword')?.touched
-                ) {
-                  <div
+  signupForm.get('confirmPassword')?.errors &&
+  signupForm.get('confirmPassword')?.touched
+) {
+    <div
                     class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                     role="alert"
                   >
@@ -257,11 +295,17 @@
                     <span class="sr-only">Danger</span>
                     <div>
                       <ul class="mt-1.5 list-disc list-inside">
-                        <li>password is not match!</li>
+                        @if (signupForm.get('confirmPassword')?.hasError('required')) {
+        <li>Confirm password is required.</li>
+      } @else if (signupForm.get('confirmPassword')?.hasError('mismatch')) {
+        <li>Passwords do not match.</li>
+      }
                       </ul>
                     </div>
                   </div>
-                }
+
+ 
+}
               </div>
             </div>
           </div>
@@ -311,6 +355,8 @@
               </p>
             </div>
           </div>
+
+          
           <button
             type="submit"
             class="h-14 bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"

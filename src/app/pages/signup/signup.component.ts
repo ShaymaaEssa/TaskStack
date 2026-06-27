@@ -6,8 +6,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthenticationService } from '../../core/services/auth-service/authentication.service';
+import { environment } from '../../core/environment/environment';
+import { pages } from '../../core/environment/pages';
 
 @Component({
   selector: 'app-signup',
@@ -23,6 +25,7 @@ export class SignupComponent implements OnInit {
 
   signupForm!: FormGroup;
   private readonly authService = inject(AuthenticationService);
+  private readonly router = inject(Router);
 
   ngOnInit(): void {
     this.initForm();
@@ -54,14 +57,39 @@ export class SignupComponent implements OnInit {
   }
 
   confirmPasswordValidator(group: AbstractControl) {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
+    const password = group.get('password');
+    const confirmPassword = group.get('confirmPassword');
+
+    if (!password || !confirmPassword) {
+      return null;
+    }
+
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setErrors({ mismatch: true });
+    } else {
+      if (confirmPassword.hasError('mismatch')) {
+        confirmPassword.setErrors(null);
+      }
+    }
+
+    return null;
   }
 
   submitForm() {
     if (this.signupForm.invalid) {
       alert('Fix Form Problem!');
+      const controls = this.signupForm.controls;
+
+      for (const name in controls) {
+        if (controls[name].invalid) {
+          // Prints the field name and its specific error object (e.g., { required: true })
+          console.log(
+            `Field [${name}] is invalid. Errors:`,
+            controls[name].errors,
+          );
+        }
+      }
+
       return;
     }
 
@@ -69,10 +97,13 @@ export class SignupComponent implements OnInit {
       next: (response) => {
         console.log('Signup successful:', response);
         alert('Signup successful!');
+        localStorage.setItem(environment.token, response.access_token);
+        this.router.navigate([pages.Projects]);
       },
-      error: (error) => {
-        console.error('Signup failed:', error);
-        alert('Signup failed. Please try again.');
+      error: (err) => {
+        console.error('Signup failed:', err);
+        this.msgError = err.error?.msg ?? 'Login failed. Please try again.';
+        alert('Signup failed. Please try again.' + this.msgError);
       },
     });
   }
