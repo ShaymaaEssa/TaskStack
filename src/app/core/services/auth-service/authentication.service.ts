@@ -44,11 +44,11 @@ export class AuthenticationService {
     const user_accessToken = localStorage.getItem(environment.token);
     const headers = {
       apikey: environment.key,
-      Authorization: user_accessToken,
+      Authorization: `Bearer ${user_accessToken}`,
       'Content-Type': 'application/json',
     };
 
-    return this.httpClient.post<IUserDataResponse>(
+    return this.httpClient.get<IUserDataResponse>(
       `${environment.baseURL}/auth/v1/user`,
       { headers },
     );
