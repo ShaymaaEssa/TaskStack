@@ -1,3 +1,33 @@
-        <header class="w-full fixed top-0 left-0 right-0 h-fit border-b flex flex-row justify-between px-6 py-3 bg-background border-black/10">
+<header
+  class="w-full fixed top-0 left-0 right-0 h-fit border-b flex flex-row justify-between items-center px-6 py-3 bg-background border-black/10"
+>
+  <div class="text-container w-fit h-fit flex flex-row gap-4">
+    <button class="w-fit h-fit rounded-xs p-1">
+      <div class="icon-container w-fit h-fit">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="var(--color-blue-041B3C)"
+        >
+          <path
+            d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+          />
+        </svg>
+      </div>
+    </button>
 
-        </header>
+    <h1
+      class="font-bold text-xl leading-7 tracking-[-0.5px] text-blue-041B3C pe-[92.31px]"
+    >
+      TASKLY
+    </h1>
+  </div>
+
+  <div
+    class="image-info bg-blue-0052CC w-10 h-10 rounded-xl shadow-navbar-image flex justify-center items-center"
+  >
+    <span class="font-bold text-[16px] leading-6 text-white">{{nameIntials}}</span>
+  </div>
+</header>

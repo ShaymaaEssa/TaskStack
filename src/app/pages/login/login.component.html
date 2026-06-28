@@ -20,192 +20,143 @@
     </div>
   </header> -->
 
-  <section class="login-section">
+<section class="login-section">
+  <div
+    class="login-container w-full lg:max-w-120 lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-146.5 lg:h-fit"
+  >
     <div
-      class="login-container w-full lg:max-w-120 lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-146.5 lg:h-fit"
+      class="section-title h-37 w-full flex flex-col justify-end lg:justify-center pb-10 lg:gap-2 lg:mt-12 lg:ms-12 lg:w-[384px]"
     >
-      <div
-        class="section-title h-37 w-full flex flex-col justify-end lg:justify-center pb-10 lg:gap-2 lg:mt-12 lg:ms-12 lg:w-[384px]"
+      <h1
+        class="font-semibold text-heading leading-8 tracking-[-0.6px] text-center text-[24px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
       >
-        <h1
-          class="font-semibold text-heading leading-8 tracking-[-0.6px] text-center text-[24px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
-        >
-          Welcome Back
-        </h1>
+        Welcome Back
+      </h1>
 
-        <p class="text-[14px] leading-5 text-body text-center">
-          please enter your details to access your workspace
-        </p>
-      </div>
+      <p class="text-[14px] leading-5 text-body text-center">
+        please enter your details to access your workspace
+      </p>
+    </div>
 
-      <div class="max-w-[384px] w-[85.5] pb-4 mx-auto">
-        <form
-          [formGroup]="loginForm"
-          (ngSubmit)="submitForm()"
-          class="signup-form pb-16px mx-auto flex flex-col gap-6 w-full"
-        >
-          <div class="form-group flex flex-col gap-2">
-            <label
-              for="email"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
-              >Email Address</label
-            >
-
-            <div class="relative">
-              <span
-                class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="20px"
-                  viewBox="0 -960 960 960"
-                  width="20px"
-                  fill="#737685"
-                >
-                  <path
-                    d="M168-192q-29.7 0-50.85-21.16Q96-234.32 96-264.04v-432.24Q96-726 117.15-747T168-768h624q29.7 0 50.85 21.16Q864-725.68 864-695.96v432.24Q864-234 842.85-213T792-192H168Zm312-240L168-611v347h624v-347L480-432Zm0-85 312-179H168l312 179Zm-312-94v-85 432-347Z"
-                  />
-                </svg>
-              </span>
-              <input
-                formControlName="email"
-                type="email"
-                id="email"
-                placeholder="curator@workspace.com"
-                class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div class="email-errormsg">
-              @if (
-                loginForm.get('email')?.errors &&
-                loginForm.get('email')?.touched
-              ) {
-                <div
-                  class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                  role="alert"
-                >
-                  <svg
-                    class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                    />
-                  </svg>
-                  <span class="sr-only">Danger</span>
-                  <div>
-                    <ul class="mt-1.5 list-disc list-inside">
-                      @if (loginForm.get('email')?.getError('required')) {
-                        <li>Email is Required</li>
-                      } @else if (loginForm.get('email')?.getError('email')) {
-                        <li>Email is invalid</li>
-                      }
-                    </ul>
-                  </div>
-                </div>
-              }
-            </div>
-          </div>
-
-          <div class="form-group flex flex-col gap-2">
-            <div class="flex flex-row justify-between">
-              <label
-                for="password"
-                class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
-                >Password</label
-              >
-
-              <a
-                href=""
-                class="text-primary font-bold text-[11px] leading-[16.5px]"
-              >
-                Forget Password?
-              </a>
-            </div>
-
-            <div class="relative">
-              <button
-                class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
-                (click)="showPassword = !showPassword"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#737685"
-                >
-                  <path
-                    d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
-                  />
-                </svg>
-              </button>
-
-              <input
-                formControlName="password"
-                [type]="showPassword ? 'text' : 'password'"
-                id="password"
-                placeholder="Enter your password"
-                class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div class="password-errormsg">
-              @if (
-                loginForm.get('password')?.errors &&
-                loginForm.get('password')?.touched
-              ) {
-                <div
-                  class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                  role="alert"
-                >
-                  <svg
-                    class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                    />
-                  </svg>
-                  <span class="sr-only">Danger</span>
-                  <div>
-                    <ul class="mt-1.5 list-disc list-inside">
-                      @if (loginForm.get('password')?.getError('required')) {
-                        <li>password is required</li>
-                      } @else if (
-                        loginForm.get('password')?.getError('pattern')
-                      ) {
-                        <li>password is not valid</li>
-                      }
-                    </ul>
-                  </div>
-                </div>
-              }
-            </div>
-          </div>
-
-          <div
-            class="rememberme-container px-1 pb-2 flex flex-row justify-start items-center gap-3"
+    <div class="max-w-[384px] w-[85.5] pb-4 mx-auto">
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="submitForm()"
+        class="signup-form pb-16px mx-auto flex flex-col gap-6 w-full"
+      >
+        <div class="form-group flex flex-col gap-2">
+          <label
+            for="email"
+            class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+            >Email Address</label
           >
-            <input
-              formControlName="rememberMe"
-              type="checkbox"
-              id="rememberMe"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
-            />
-            <label for="rememberMe" class="text-[14px] text-heading font-medium"
-              >Remember Me</label
+
+          <div class="relative">
+            <span
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]"
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20px"
+                viewBox="0 -960 960 960"
+                width="20px"
+                fill="#737685"
+              >
+                <path
+                  d="M168-192q-29.7 0-50.85-21.16Q96-234.32 96-264.04v-432.24Q96-726 117.15-747T168-768h624q29.7 0 50.85 21.16Q864-725.68 864-695.96v432.24Q864-234 842.85-213T792-192H168Zm312-240L168-611v347h624v-347L480-432Zm0-85 312-179H168l312 179Zm-312-94v-85 432-347Z"
+                />
+              </svg>
+            </span>
+            <input
+              formControlName="email"
+              type="email"
+              id="email"
+              placeholder="curator@workspace.com"
+              class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div class="email-errormsg">
+            @if (
+              loginForm.get('email')?.errors && loginForm.get('email')?.touched
+            ) {
+              <div
+                class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                role="alert"
+              >
+                <svg
+                  class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
+                <span class="sr-only">Danger</span>
+                <div>
+                  <ul class="mt-1.5 list-disc list-inside">
+                    @if (loginForm.get('email')?.getError('required')) {
+                      <li>Email is Required</li>
+                    } @else if (loginForm.get('email')?.getError('email')) {
+                      <li>Email is invalid</li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="form-group flex flex-col gap-2">
+          <div class="flex flex-row justify-between">
+            <label
+              for="password"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-medium mb-2 uppercase"
+              >Password</label
+            >
+
+            <a
+              href=""
+              class="text-primary font-bold text-[11px] leading-[16.5px]"
+            >
+              Forget Password?
+            </a>
           </div>
 
-          <div class="login-msg">
-            @if (msgError) {
+          <div class="relative">
+            <button
+              class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
+              (click)="showPassword = !showPassword"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#737685"
+              >
+                <path
+                  d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
+                />
+              </svg>
+            </button>
+
+            <input
+              formControlName="password"
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              placeholder="Enter your password"
+              class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div class="password-errormsg">
+            @if (
+              loginForm.get('password')?.errors &&
+              loginForm.get('password')?.touched
+            ) {
               <div
                 class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
                 role="alert"
@@ -223,57 +174,101 @@
                 </svg>
                 <span class="sr-only">Danger</span>
                 <div>
-                  {{ msgError }}
+                  <ul class="mt-1.5 list-disc list-inside">
+                    @if (loginForm.get('password')?.getError('required')) {
+                      <li>password is required</li>
+                    } @else if (
+                      loginForm.get('password')?.getError('pattern')
+                    ) {
+                      <li>password is not valid</li>
+                    }
+                  </ul>
                 </div>
               </div>
             }
-
-            @if (successMsg) {
-              <p
-                class="w-[75%] mx-auto bg-green-400 text-white border py-6 px-2"
-              >
-                {{ successMsg }}
-              </p>
-            }
-          </div>
-
-          <button
-            type="submit"
-            class="bg-linear-to-r from-primary to-primary-light shadow-[0_4px_6px_-4px_#003D9B1A,0_10px_15px_-3px_#003D9B1A] text-white h-14 rounded-lg font-semibold text-[16px] leading-5 text-center w-full flex flex-row gap-2 justify-center items-center mt-4 cursor-pointer"
-          >
-            <span
-              class="font-semibold text-[16px] leading-6 text-center text-white"
-              >Sign In
-            </span>
-            <div
-              class="icon-container w-[13.33px] h-[13.33px] flex items-center justify-center"
-            >
-              <img
-                src="../../../assets/login/arrow.png"
-                alt="right arrow"
-                class="w-full"
-              />
-            </div>
-          </button>
-        </form>
-      </div>
-
-      <footer
-        class="placeholder-mist-800 pt-41.75 lg:pt-8 lg:border-t lg:border-borderfooter lg:w-[384px] lg:mx-auto lg:pb-8"
-      >
-        <div class="pt-12">
-          <div class="flex flex-row gap-1 items-center justify-center">
-            <p class="text-[14px] leading-5 text-body">
-              Don't have an account?
-            </p>
-            <a
-              href="/signup"
-              class="font-semibold text-[14px] leading-5 text-primary"
-              >Sign up</a
-            >
           </div>
         </div>
-      </footer>
+
+        <div
+          class="rememberme-container px-1 pb-2 flex flex-row justify-start items-center gap-3"
+        >
+          <input
+            formControlName="rememberMe"
+            type="checkbox"
+            id="rememberMe"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+          />
+          <label for="rememberMe" class="text-[14px] text-heading font-medium"
+            >Remember Me</label
+          >
+        </div>
+
+        <div class="login-msg">
+          @if (msgError) {
+            <div
+              class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Danger</span>
+              <div>
+                {{ msgError }}
+              </div>
+            </div>
+          }
+
+          @if (successMsg) {
+            <p class="w-[75%] mx-auto bg-green-400 text-white border py-6 px-2">
+              {{ successMsg }}
+            </p>
+          }
+        </div>
+
+        <button
+          type="submit"
+          class="bg-linear-to-r from-primary to-primary-light shadow-[0_4px_6px_-4px_#003D9B1A,0_10px_15px_-3px_#003D9B1A] text-white h-14 rounded-lg font-semibold text-[16px] leading-5 text-center w-full flex flex-row gap-2 justify-center items-center mt-4 cursor-pointer"
+        >
+          <span
+            class="font-semibold text-[16px] leading-6 text-center text-white"
+            >Sign In
+          </span>
+          <div
+            class="icon-container w-[13.33px] h-[13.33px] flex items-center justify-center"
+          >
+            <img
+              src="../../../assets/login/arrow.png"
+              alt="right arrow"
+              class="w-full"
+            />
+          </div>
+        </button>
+      </form>
     </div>
-  </section>
+
+    <footer
+      class="placeholder-mist-800 pt-41.75 lg:pt-8 lg:border-t lg:border-borderfooter lg:w-[384px] lg:mx-auto lg:pb-8"
+    >
+      <div class="pt-12">
+        <div class="flex flex-row gap-1 items-center justify-center">
+          <p class="text-[14px] leading-5 text-body">Don't have an account?</p>
+          <a
+            href="/signup"
+            class="font-semibold text-[14px] leading-5 text-primary"
+            >Sign up</a
+          >
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
 <!-- </div> -->

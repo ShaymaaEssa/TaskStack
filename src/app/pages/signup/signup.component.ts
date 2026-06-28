@@ -10,6 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthenticationService } from '../../core/services/auth-service/authentication.service';
 import { environment } from '../../core/environment/environment';
 import { pages } from '../../core/environment/pages';
+import { ISignUpForm } from '../../shared/interfaces/signup/isign-up-form';
 
 @Component({
   selector: 'app-signup',
@@ -41,7 +42,7 @@ export class SignupComponent implements OnInit {
           Validators.pattern(/^[\p{L}]+(?: [\p{L}]+)*$/u),
         ]),
         email: new FormControl(null, [Validators.required, Validators.email]),
-        jobTitle: new FormControl(null),
+        department: new FormControl(null),
         password: new FormControl(null, [
           Validators.required,
           Validators.minLength(8),
@@ -93,7 +94,16 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    this.authService.sendSignupForm(this.signupForm.value).subscribe({
+    const body: ISignUpForm = {
+      email: this.signupForm.value.email!,
+      password: this.signupForm.value.password!,
+      data: {
+        name: this.signupForm.value.name!,
+        department: this.signupForm.value.department ?? '',
+      },
+    };
+
+    this.authService.sendSignupForm(body).subscribe({
       next: (response) => {
         console.log('Signup successful:', response);
         alert('Signup successful!');

@@ -13,7 +13,6 @@ export const loggedGuard: CanActivateFn = () => {
       if (localStorage.getItem(environment.tokenExpireDate) !== null) {
         const expireDate = localStorage.getItem(environment.tokenExpireDate);
         if (Date.now() <= Number(expireDate)) {
-
           return true;
         } else {
           // Token expired

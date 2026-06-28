@@ -6,6 +6,7 @@ import { ISignupResponse } from '../../../shared/interfaces/signup/isignup-respo
 import { Observable } from 'rxjs';
 import { ILogin } from '../../../shared/interfaces/login/ilogin';
 import { ILoginResponse } from '../../../shared/interfaces/login/ilogin-response';
+import { IUserDataResponse } from '../../../shared/interfaces/userdata/iuser-data-response';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,20 @@ export class AuthenticationService {
     return this.httpClient.post<ILoginResponse>(
       `${environment.baseURL}/auth/v1/token?grant_type=password`,
       data,
+      { headers },
+    );
+  }
+
+  getUserData(): Observable<IUserDataResponse> {
+    const user_accessToken = localStorage.getItem(environment.token);
+    const headers = {
+      apikey: environment.key,
+      Authorization: user_accessToken,
+      'Content-Type': 'application/json',
+    };
+
+    return this.httpClient.post<IUserDataResponse>(
+      `${environment.baseURL}/auth/v1/user`,
       { headers },
     );
   }

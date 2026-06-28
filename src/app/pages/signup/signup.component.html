@@ -20,427 +20,420 @@
     </div>
   </header> -->
 
-  <section class="signup-section">
+<section class="signup-section">
+  <div
+    class="signup-container w-full lg:max-w-xl lg-w-xl lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-[838.5px] lg:h-fit lg:p-12"
+  >
     <div
-      class="signup-container w-full lg:max-w-xl lg-w-xl lg:bg-white lg:rounded-lg lg:shadow-card mx-auto lg:min-h-[838.5px] lg:h-fit lg:p-12"
+      class="section-title h-fit min-h-[165.5px] lg:min-h-26 pt-8 pb-10 w-full lg:pt-0"
     >
       <div
-        class="section-title h-fit min-h-[165.5px] lg:min-h-26 pt-8 pb-10 w-full lg:pt-0"
+        class="section-title-container w-full h-fit min-h-14 lg:min-h-16 flex flex-col justify-start lg:justify-center lg:items-center lg:text-center gap-[6.88px] lg:gap-2"
       >
-        <div
-          class="section-title-container w-full h-fit min-h-14 lg:min-h-16 flex flex-col justify-start lg:justify-center lg:items-center lg:text-center gap-[6.88px] lg:gap-2"
+        <h1
+          class="font-semibold text-heading leading-10 tracking-[-0.8px] text-[28px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
         >
-          <h1
-            class="font-semibold text-heading leading-10 tracking-[-0.8px] text-[28px] lg:text-[30px] lg:leading-9 lg:tracking-[-0.75px]"
+          Create your workspace
+        </h1>
+        <p
+          class="text-[14px] leading-[22.75px] lg:leading-5 text-body pb-[0.63px] w-85.5 lg:w-full"
+        >
+          Join the curated environment for institutional trust and task
+          precision.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-fill min-w-85.5 lg:min-w-120 pb-4 h-fit min-h-[584.5px] mx-auto"
+    >
+      <form
+        [formGroup]="signupForm"
+        (ngSubmit)="submitForm()"
+        class="signup-form flex flex-col gap-6 w-full h-fit min-h-[568.5px] lg:min-h-[570.5px]"
+      >
+        <div class="form-group flex flex-col w-fill min-h-[78.5px]">
+          <label
+            for="name"
+            class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+            >Full Name</label
           >
-            Create your workspace
-          </h1>
+          <input
+            formControlName="name"
+            type="text"
+            id="name"
+            placeholder="Enter your full name"
+            class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
+          />
           <p
-            class="text-[14px] leading-[22.75px] lg:leading-5 text-body pb-[0.63px] w-85.5 lg:w-full"
+            class="px-1 text-[11px] leading-[16.5px] text-[#C3C6D6] hidden lg:block"
           >
-            Join the curated environment for institutional trust and task
-            precision.
+            3-50 characters, letters only.
           </p>
         </div>
-      </div>
+        <div class="name-errormsg">
+          @if (
+            signupForm.get('name')?.errors && signupForm.get('name')?.touched
+          ) {
+            <div
+              class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Danger</span>
+              <div>
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if (signupForm.get('name')?.getError('required')) {
+                    <li>Name is Required</li>
+                  } @else if (signupForm.get('name')?.getError('minlength')) {
+                    <li>Name min length: 3</li>
+                  } @else if (signupForm.get('name')?.getError('maxlength')) {
+                    <li>Name max length: 50</li>
+                  } @else if (signupForm.get('name')?.getError('name')) {
+                    <li>Name is invalid</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          }
+        </div>
 
-      <div
-        class="w-fill min-w-85.5 lg:min-w-120 pb-4 h-fit min-h-[584.5px] mx-auto"
-      >
-        <form
-          [formGroup]="signupForm"
-          (ngSubmit)="submitForm()"
-          class="signup-form flex flex-col gap-6 w-full h-fit min-h-[568.5px] lg:min-h-[570.5px]"
-        >
-          <div class="form-group flex flex-col w-fill min-h-[78.5px]">
+        <div class="form-group flex flex-col gap-2">
+          <label
+            for="email"
+            class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+            >Email</label
+          >
+          <input
+            formControlName="email"
+            type="email"
+            id="email"
+            placeholder="username@company.com"
+            class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
+          />
+          @if (
+            signupForm.get('email')?.errors && signupForm.get('email')?.touched
+          ) {
+            <div
+              class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <svg
+                class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                />
+              </svg>
+              <span class="sr-only">Danger</span>
+              <div>
+                <ul class="mt-1.5 list-disc list-inside">
+                  @if (signupForm.get('email')?.getError('required')) {
+                    <li>email is Required</li>
+                  } @else if (signupForm.get('email')?.getError('email')) {
+                    <li>email is invalid</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="form-group flex flex-col gap-2">
+          <label
+            for="department"
+            class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+            >Job Title <span class="invisible lg:visible">(Optional)</span>
+          </label>
+          <input
+            formControlName="department"
+            type="text"
+            id="department"
+            placeholder="eg. Project Manager"
+            class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
+          />
+        </div>
+
+        <div class="password-grid flex flex-col gap-6 lg:flex-row">
+          <div class="form-group flex flex-col gap-2">
             <label
-              for="name"
+              for="password"
               class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
-              >Full Name</label
+              >Password</label
             >
-            <input
-              formControlName="name"
-              type="text"
-              id="name"
-              placeholder="Enter your full name"
-              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
-            />
-            <p
-              class="px-1 text-[11px] leading-[16.5px] text-[#C3C6D6] hidden lg:block"
+            <div class="relative">
+              <button
+                class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
+                (click)="showPassword = !showPassword"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#737685"
+                >
+                  <path
+                    d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
+                  />
+                </svg>
+              </button>
+
+              <input
+                formControlName="password"
+                [type]="showPassword ? 'text' : 'password'"
+                id="password"
+                placeholder="Password"
+                class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="password-errormsg">
+              @if (
+                signupForm.get('password')?.errors &&
+                signupForm.get('password')?.touched
+              ) {
+                <div
+                  class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                  role="alert"
+                >
+                  <svg
+                    class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                    />
+                  </svg>
+                  <span class="sr-only">Danger</span>
+                  <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                      @if (signupForm.get('password')?.getError('required')) {
+                        <li>password is required</li>
+                      } @else if (
+                        signupForm.get('password')?.getError('pattern')
+                      ) {
+                        <li>password is not valid</li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <div class="form-group flex flex-col gap-2">
+            <label
+              for="confirmPassword"
+              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
+              >Confirm Password</label
             >
-              3-50 characters, letters only.
+            <div class="relative">
+              <button
+                class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
+                (click)="showPassword = !showPassword"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#737685"
+                >
+                  <path
+                    d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
+                  />
+                </svg>
+              </button>
+
+              <input
+                formControlName="confirmPassword"
+                [type]="showPassword ? 'text' : 'password'"
+                id="confirmPassword"
+                placeholder="Repeat your password"
+                class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="confirmpassword-errmsg">
+              @if (
+                signupForm.get('confirmPassword')?.errors &&
+                signupForm.get('confirmPassword')?.touched
+              ) {
+                <div
+                  class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+                  role="alert"
+                >
+                  <svg
+                    class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                    />
+                  </svg>
+                  <span class="sr-only">Danger</span>
+                  <div>
+                    <ul class="mt-1.5 list-disc list-inside">
+                      @if (
+                        signupForm.get('confirmPassword')?.hasError('required')
+                      ) {
+                        <li>Confirm password is required.</li>
+                      } @else if (
+                        signupForm.get('confirmPassword')?.hasError('mismatch')
+                      ) {
+                        <li>Passwords do not match.</li>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="validation-hints bg-validationhints w-full h-fit p-4 rounded-lg lg:flex flex-col gap-[7.5px] hidden"
+        >
+          <div class="rule-item flex flex-row items-center gap-2">
+            <div class="check-icon w-fit">
+              @if (passwordMeetsLength()) {
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="11.67px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="var(--color-green-004E32)"
+                >
+                  <path
+                    d="M616-344.23q56-56.22 56-136Q672-560 615.77-616q-56.22-56-136-56Q400-672 344-615.77q-56 56.22-56 136Q288-400 344.23-344q56.22 56 136 56Q560-288 616-344.23ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
+                  />
+                </svg>
+              } @else {
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="11.67px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="var(--color-gray-737685)"
+                >
+                  <path
+                    d="M480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
+                  />
+                </svg>
+              }
+            </div>
+            <p class="text-[11px] leading-4.5 text-label">
+              At least 8 characters
             </p>
           </div>
-          <div class="name-errormsg">
-            @if (
-              signupForm.get('name')?.errors && signupForm.get('name')?.touched
-            ) {
-              <div
-                class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                role="alert"
-              >
+
+          <div class="rule-item flex flex-row items-center gap-2">
+            <div class="check-icon w-fit">
+              @if (passwordHasUpperLowerDigit()) {
                 <svg
-                  class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  height="11.67px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="var(--color-green-004E32)"
                 >
                   <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                    d="M616-344.23q56-56.22 56-136Q672-560 615.77-616q-56.22-56-136-56Q400-672 344-615.77q-56 56.22-56 136Q288-400 344.23-344q56.22 56 136 56Q560-288 616-344.23ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
                   />
                 </svg>
-                <span class="sr-only">Danger</span>
-                <div>
-                  <ul class="mt-1.5 list-disc list-inside">
-                    @if (signupForm.get('name')?.getError('required')) {
-                      <li>Name is Required</li>
-                    } @else if (signupForm.get('name')?.getError('minlength')) {
-                      <li>Name min length: 3</li>
-                    } @else if (signupForm.get('name')?.getError('maxlength')) {
-                      <li>Name max length: 50</li>
-                    } @else if (signupForm.get('name')?.getError('name')) {
-                      <li>Name is invalid</li>
-                    }
-                  </ul>
-                </div>
-              </div>
-            }
-          </div>
-
-          <div class="form-group flex flex-col gap-2">
-            <label
-              for="email"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
-              >Email</label
-            >
-            <input
-              formControlName="email"
-              type="email"
-              id="email"
-              placeholder="username@company.com"
-              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
-            />
-            @if (
-              signupForm.get('email')?.errors &&
-              signupForm.get('email')?.touched
-            ) {
-              <div
-                class="w-full flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                role="alert"
-              >
+              } @else {
                 <svg
-                  class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
-                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  height="11.67px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="var(--color-gray-737685)"
                 >
                   <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                    d="M480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
                   />
                 </svg>
-                <span class="sr-only">Danger</span>
-                <div>
-                  <ul class="mt-1.5 list-disc list-inside">
-                    @if (signupForm.get('email')?.getError('required')) {
-                      <li>email is Required</li>
-                    } @else if (signupForm.get('email')?.getError('email')) {
-                      <li>email is invalid</li>
-                    }
-                  </ul>
-                </div>
-              </div>
-            }
+              }
+            </div>
+            <p class="text-[11px] leading-4.5 text-label">
+              One uppercase, lowercase, and digit
+            </p>
           </div>
 
-          <div class="form-group flex flex-col gap-2">
-            <label
-              for="jobTitle"
-              class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
-              >Job Title <span class="invisible lg:visible">(Optional)</span>
-            </label>
-            <input
-              formControlName="jobTitle"
-              type="text"
-              id="jobTitle"
-              placeholder="eg. Project Manager"
-              class="border w-full border-border rounded-lg py-3.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500 h-14"
-            />
-          </div>
-
-          <div class="password-grid flex flex-col gap-6 lg:flex-row">
-            <div class="form-group flex flex-col gap-2">
-              <label
-                for="password"
-                class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
-                >Password</label
-              >
-              <div class="relative">
-                <button
-                  class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
-                  (click)="showPassword = !showPassword"
+          <div class="rule-item flex flex-row items-center gap-2">
+            <div class="check-icon w-fit">
+              @if (passwordHasSpecialCharacter()) {
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="11.67px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="var(--color-green-004E32)"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#737685"
-                  >
-                    <path
-                      d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
-                    />
-                  </svg>
-                </button>
-
-                <input
-                  formControlName="password"
-                  [type]="showPassword ? 'text' : 'password'"
-                  id="password"
-                  placeholder="Password"
-                  class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div class="password-errormsg">
-                @if (
-                  signupForm.get('password')?.errors &&
-                  signupForm.get('password')?.touched
-                ) {
-                  <div
-                    class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                    role="alert"
-                  >
-                    <svg
-                      class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                      />
-                    </svg>
-                    <span class="sr-only">Danger</span>
-                    <div>
-                      <ul class="mt-1.5 list-disc list-inside">
-                        @if (signupForm.get('password')?.getError('required')) {
-                          <li>password is required</li>
-                        } @else if (
-                          signupForm.get('password')?.getError('pattern')
-                        ) {
-                          <li>password is not valid</li>
-                        }
-                      </ul>
-                    </div>
-                  </div>
-                }
-              </div>
-            </div>
-
-            <div class="form-group flex flex-col gap-2">
-              <label
-                for="confirmPassword"
-                class="block text-[11px] text-label leading-[16.5px] tracking-[0.55px] font-bold mb-2 uppercase"
-                >Confirm Password</label
-              >
-              <div class="relative">
-                <button
-                  class="icon-container absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
-                  (click)="showPassword = !showPassword"
+                  <path
+                    d="M616-344.23q56-56.22 56-136Q672-560 615.77-616q-56.22-56-136-56Q400-672 344-615.77q-56 56.22-56 136Q288-400 344.23-344q56.22 56 136 56Q560-288 616-344.23ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
+                  />
+                </svg>
+              } @else {
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="11.67px"
+                  viewBox="0 -960 960 960"
+                  width="20px"
+                  fill="var(--color-gray-737685)"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="24px"
-                    viewBox="0 -960 960 960"
-                    width="24px"
-                    fill="#737685"
-                  >
-                    <path
-                      d="M607.5-372.5Q660-425 660-500t-52.5-127.5Q555-680 480-680t-127.5 52.5Q300-575 300-500t52.5 127.5Q405-320 480-320t127.5-52.5Zm-204-51Q372-455 372-500t31.5-76.5Q435-608 480-608t76.5 31.5Q588-545 588-500t-31.5 76.5Q525-392 480-392t-76.5-31.5ZM214-281.5Q94-363 40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200q-146 0-266-81.5ZM480-500Zm207.5 160.5Q782-399 832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280q113 0 207.5-59.5Z"
-                    />
-                  </svg>
-                </button>
-
-                <input
-                  formControlName="confirmPassword"
-                  [type]="showPassword ? 'text' : 'password'"
-                  id="confirmPassword"
-                  placeholder="Repeat your password"
-                  class="border w-full border-border rounded-lg py-4.5 px-4 bg-input text-[16px] focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-              <div class="confirmpassword-errmsg">
-                @if (
-                  signupForm.get('confirmPassword')?.errors &&
-                  signupForm.get('confirmPassword')?.touched
-                ) {
-                  <div
-                    class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-                    role="alert"
-                  >
-                    <svg
-                      class="shrink-0 inline w-4 h-4 me-3 mt-0.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                      />
-                    </svg>
-                    <span class="sr-only">Danger</span>
-                    <div>
-                      <ul class="mt-1.5 list-disc list-inside">
-                        @if (
-                          signupForm
-                            .get('confirmPassword')
-                            ?.hasError('required')
-                        ) {
-                          <li>Confirm password is required.</li>
-                        } @else if (
-                          signupForm
-                            .get('confirmPassword')
-                            ?.hasError('mismatch')
-                        ) {
-                          <li>Passwords do not match.</li>
-                        }
-                      </ul>
-                    </div>
-                  </div>
-                }
-              </div>
+                  <path
+                    d="M480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
+                  />
+                </svg>
+              }
             </div>
+            <p class="text-[11px] leading-4.5 text-label">
+              One special character
+            </p>
           </div>
-
-          <div
-            class="validation-hints bg-validationhints w-full h-fit p-4 rounded-lg lg:flex flex-col gap-[7.5px] hidden"
-          >
-            <div class="rule-item flex flex-row items-center gap-2">
-              <div class="check-icon w-fit">
-                @if (passwordMeetsLength()) {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="11.67px"
-                    viewBox="0 -960 960 960"
-                    width="20px"
-                    fill="var(--color-green-004E32)"
-                  >
-                    <path
-                      d="M616-344.23q56-56.22 56-136Q672-560 615.77-616q-56.22-56-136-56Q400-672 344-615.77q-56 56.22-56 136Q288-400 344.23-344q56.22 56 136 56Q560-288 616-344.23ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
-                    />
-                  </svg>
-                } @else {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="11.67px"
-                    viewBox="0 -960 960 960"
-                    width="20px"
-                    fill="var(--color-gray-737685)"
-                  >
-                    <path
-                      d="M480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
-                    />
-                  </svg>
-                }
-              </div>
-              <p class="text-[11px] leading-4.5 text-label">
-                At least 8 characters
-              </p>
-            </div>
-
-            <div class="rule-item flex flex-row items-center gap-2">
-              <div class="check-icon w-fit">
-                @if (passwordHasUpperLowerDigit()) {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="11.67px"
-                    viewBox="0 -960 960 960"
-                    width="20px"
-                    fill="var(--color-green-004E32)"
-                  >
-                    <path
-                      d="M616-344.23q56-56.22 56-136Q672-560 615.77-616q-56.22-56-136-56Q400-672 344-615.77q-56 56.22-56 136Q288-400 344.23-344q56.22 56 136 56Q560-288 616-344.23ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
-                    />
-                  </svg>
-                } @else {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="11.67px"
-                    viewBox="0 -960 960 960"
-                    width="20px"
-                    fill="var(--color-gray-737685)"
-                  >
-                    <path
-                      d="M480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
-                    />
-                  </svg>
-                }
-              </div>
-              <p class="text-[11px] leading-4.5 text-label">
-                One uppercase, lowercase, and digit
-              </p>
-            </div>
-
-            <div class="rule-item flex flex-row items-center gap-2">
-              <div class="check-icon w-fit">
-                @if (passwordHasSpecialCharacter()) {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="11.67px"
-                    viewBox="0 -960 960 960"
-                    width="20px"
-                    fill="var(--color-green-004E32)"
-                  >
-                    <path
-                      d="M616-344.23q56-56.22 56-136Q672-560 615.77-616q-56.22-56-136-56Q400-672 344-615.77q-56 56.22-56 136Q288-400 344.23-344q56.22 56 136 56Q560-288 616-344.23ZM480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
-                    />
-                  </svg>
-                } @else {
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="11.67px"
-                    viewBox="0 -960 960 960"
-                    width="20px"
-                    fill="var(--color-gray-737685)"
-                  >
-                    <path
-                      d="M480.28-96Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Z"
-                    />
-                  </svg>
-                }
-              </div>
-              <p class="text-[11px] leading-4.5 text-label">
-                One special character
-              </p>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            class="h-14 bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
-          >
-            Create Account
-          </button>
-        </form>
-      </div>
-
-      <footer
-        class="placeholder-mist-800 w-full h-fit min-h-[99.5px] pt-[47.5px] pb-8 lg:pt-8 lg:pb-0"
-      >
-        <div class="flex flex-row justify-center gap-1">
-          <p class="text-[14px] leading-5 text-label">
-            Already have an account?
-          </p>
-          <a
-            href="/login"
-            class="text-[#003D9B] text-[14px] leading-5 font-semibold"
-            >Log in</a
-          >
         </div>
-      </footer>
+
+        <button
+          type="submit"
+          class="h-14 bg-linear-to-r from-[#003D9B] to-[#0052CC] shadow-[0px_1px_2px_0px_#0000000D] text-white py-2 px-4 rounded-sm font-semibold text-[16px] leading-5 text-center w-full mt-4 cursor-pointer"
+        >
+          Create Account
+        </button>
+      </form>
     </div>
-  </section>
+
+    <footer
+      class="placeholder-mist-800 w-full h-fit min-h-[99.5px] pt-[47.5px] pb-8 lg:pt-8 lg:pb-0"
+    >
+      <div class="flex flex-row justify-center gap-1">
+        <p class="text-[14px] leading-5 text-label">Already have an account?</p>
+        <a
+          href="/login"
+          class="text-[#003D9B] text-[14px] leading-5 font-semibold"
+          >Log in</a
+        >
+      </div>
+    </footer>
+  </div>
+</section>
 <!-- </div> -->
