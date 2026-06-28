@@ -13,20 +13,21 @@ export const loggedGuard: CanActivateFn = () => {
       if (localStorage.getItem(environment.tokenExpireDate) !== null) {
         const expireDate = localStorage.getItem(environment.tokenExpireDate);
         if (Date.now() <= Number(expireDate)) {
-          router.navigate(['/projects']);
+
           return true;
         } else {
           // Token expired
           localStorage.removeItem(environment.token);
           localStorage.removeItem(environment.tokenExpireDate);
+          router.navigate(['/login']);
           return false;
         }
       } else {
         //navigate to projects
-        router.navigate(['/projects']);
         return true;
       }
     } else {
+      router.navigate(['/login']);
       return false;
     }
   } else {
