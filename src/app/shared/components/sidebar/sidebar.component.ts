@@ -11,6 +11,7 @@ import { SidebarService } from '../../../core/services/sidebar-service/sidebar.s
 export class SidebarComponent implements OnInit {
   private readonly sidebarService = inject(SidebarService);
   isOpen = false;
+  isCollapsed = true;
 
   ngOnInit(): void {
     this.sidebarService.isOpen$.subscribe((state) => {
@@ -20,5 +21,9 @@ export class SidebarComponent implements OnInit {
 
   toggleSidebar() {
     this.sidebarService.toggleSidebar();
+  }
+
+  toggleCollapsed() {
+    this.isCollapsed = !this.isCollapsed;
   }
 }
