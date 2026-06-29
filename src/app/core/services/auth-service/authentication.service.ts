@@ -53,4 +53,19 @@ export class AuthenticationService {
       { headers },
     );
   }
+
+  logoutUser(): Observable<void> {
+    const user_accessToken = localStorage.getItem(environment.token);
+    const headers = {
+      apikey: environment.key,
+      Authorization: `Bearer ${user_accessToken}`,
+      'Content-Type': 'application/json',
+    };
+
+    return this.httpClient.post<void>(
+      `${environment.baseURL}/auth/v1/logout`,
+      {},
+      { headers },
+    );
+  }
 }

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { environment } from '../../../core/environment/environment';
 import { SidebarService } from '../../../core/services/sidebar-service/sidebar.service';
 import { AuthenticationService } from './../../../core/services/auth-service/authentication.service';
 import { Component, inject, OnInit } from '@angular/core';
@@ -13,9 +15,12 @@ export class NavbarComponent implements OnInit {
   userName = '';
   department = '';
   nameIntials = '';
+  isDropdownOpen = false;
 
   private readonly authenticationService = inject(AuthenticationService);
-  public sidebarService = inject(SidebarService);
+  private readonly sidebarService = inject(SidebarService);
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthenticationService);
 
   ngOnInit(): void {
     this.getUserData();
@@ -47,5 +52,23 @@ export class NavbarComponent implements OnInit {
 
   toggleSidebar() {
     this.sidebarService.toggleSidebar();
+  }
+
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
+
+  logout() {
+    this.authService.logoutUser().subscribe({
+      next: () => {
+        localStorage.removeItem(environment.token);
+        localStorage.removeItem(environment.tokenExpireDate);
+
+        this.router.navigate(['/login']);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

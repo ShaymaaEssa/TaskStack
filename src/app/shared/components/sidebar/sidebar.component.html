@@ -1,10 +1,10 @@
 <div
-  class="z-40 lg:block lg:fixed lg:inset-y-0 lg:left-0"
+  class="z-40 lg:block lg:fixed lg:inset-y-0 lg:left-0 w-72"
   [class.fixed]="isOpen"
   [class.inset-0]="isOpen"
   [class.hidden]="!isOpen"
-  [class.w-72]="!isCollapsed"
-  [class.w-20]="isCollapsed"
+  [class.lg:w-72]="!isCollapsed"
+  [class.lg:w-20]="isCollapsed"
 >
   <!-- Overlay -->
   <div
@@ -16,7 +16,7 @@
     <!-- Sidebar -->
     <aside
       class="relative w-full h-full bg-blue-F1F3FF p-4 flex flex-col transition-all duration-300"
-      [class.items-center]="isCollapsed"
+      [class.lg:items-center]="isCollapsed"
     >
       <div class="logo flex flex-row items-center mb-4 gap-2">
         <div class="icon w-4.5 h-5">
@@ -26,7 +26,7 @@
             class="w-full h-full"
           />
         </div>
-        <div [class.hidden]="isCollapsed">
+        <div [class.lg:hidden]="isCollapsed">
           <h1 class="font-bold text-xl leading-7 tracking-[-0.5px]">TASKLY</h1>
         </div>
       </div>
@@ -50,7 +50,7 @@
                 />
               </svg>
             </div>
-            <div [class.hidden]="isCollapsed">
+            <div [class.lg:hidden]="isCollapsed">
               <span class="font-medium text-sm leading-5 text-blue-0052CC"
                 >Projects</span
               >
@@ -75,7 +75,7 @@
                 />
               </svg>
             </div>
-            <div [class.hidden]="isCollapsed">
+            <div [class.lg:hidden]="isCollapsed">
               <span class="font-medium text-sm leading-5 text-blue-0052CC"
                 >Project Epic</span
               >
@@ -100,7 +100,7 @@
                 />
               </svg>
             </div>
-            <div [class.hidden]="isCollapsed">
+            <div [class.lg:hidden]="isCollapsed">
               <span class="font-medium text-sm leading-5 text-blue-0052CC"
                 >Project Tasks</span
               >
@@ -125,7 +125,7 @@
                 />
               </svg>
             </div>
-            <div [class.hidden]="isCollapsed">
+            <div [class.lg:hidden]="isCollapsed">
               <span class="font-medium text-sm leading-5 text-blue-0052CC"
                 >Project Members</span
               >
@@ -150,7 +150,7 @@
                 />
               </svg>
             </div>
-            <div [class.hidden]="isCollapsed">
+            <div [class.lg:hidden]="isCollapsed">
               <span class="font-medium text-sm leading-5 text-blue-0052CC"
                 >Project Details</span
               >
@@ -161,7 +161,7 @@
 
       <div class="mt-auto lg:border-t lg:border-gray-C3C6D6/20">
         <button
-          class="px-3 py-2.5 w-full flex flex-row gap-3 items-center"
+          class="px-3 py-2.5 w-full flex flex-row gap-3 items-center invisible lg:visible"
           (click)="toggleCollapsed()"
         >
           <div class="icon-container">
@@ -194,14 +194,17 @@
             }
           </div>
 
-          <div [class.hidden]="isCollapsed">
+          <div [class.lg:hidden]="isCollapsed">
             <span class="font-medium text-sm leading-5 text-blue-041B3C"
               >CollaPse</span
             >
           </div>
         </button>
 
-        <div class="px-3 py-2.5 w-full flex flex-row gap-3 items-center">
+        <button
+          class="px-3 py-2.5 w-full flex flex-row gap-3 items-center"
+          (click)="logout()"
+        >
           <div class="icon-container">
             <svg
               width="18"
@@ -217,12 +220,12 @@
             </svg>
           </div>
 
-          <div [class.hidden]="isCollapsed">
+          <div [class.lg:hidden]="isCollapsed">
             <span class="font-medium text-sm leading-5 text-red-BA1A1A"
               >Logout</span
             >
           </div>
-        </div>
+        </button>
       </div>
     </aside>
   </div>
