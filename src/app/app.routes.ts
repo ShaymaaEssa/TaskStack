@@ -7,6 +7,7 @@ import { guestGuard } from './core/guards/GuestGuard/guest.guard';
 import { loggedGuard } from './core/guards/LoggedGuard/logged.guard';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { BlankLayoutComponent } from './layout/blank-layout/blank-layout.component';
+import { ForgetpasswordComponent } from './pages/forgetpassword/forgetpassword.component';
 
 export const routes: Routes = [
   // { path: '', redirectTo: 'projects', component: ProjectsComponent },
@@ -25,6 +26,11 @@ export const routes: Routes = [
         path: pages.Signup,
         component: SignupComponent,
         title: 'StackTask - Signup',
+      },
+      {
+        path: pages.ForgetPassword,
+        component: ForgetpasswordComponent,
+        title: 'StackTask - Forget Password',
       },
     ],
   },
