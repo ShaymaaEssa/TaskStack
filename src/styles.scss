@@ -7,7 +7,6 @@
   --color-primary: #003d9b;
 
   --color-background: #f9f9ff;
-  --color-input: #d7e2ff;
 
   --color-border: #d1d5db;
   --color-borderfooter: #c3c6d626;
@@ -15,15 +14,20 @@
   --color-blue-041B3C: #041b3c;
   --color-blue-F1F3FF: #f1f3ff;
   --color-blue-0052CC: #0052cc;
+  --color-blue-D7E2FF: #d7e2ff;
 
   --color-red-BA1A1A: #ba1a1a;
 
   --color-body: #4f5f7b;
-  --color-label: #434654;
+  // --color-label: #434654;
   --color-gray-737685: #737685;
   --color-gray-C3C6D6: #c3c6d6;
+  --color-gray-434654: #434654;
+
   --color-validationhints: #e8edff;
   --color-green-004E32: #004e32;
+
+  --background-image-primary-btn: var(--primary-button-background);
 
   /* ========= Fonts ========= */
 
@@ -36,4 +40,14 @@
 
   --shadow-card: 0 24px 48px 0 rgba(4, 27, 60, 0.06);
   --shadow-navbar-image: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --shadow-maincontent-card: 0px 24px 48px -12px #041b3c0f;
+
+  /* ========= gradients ========= */
+  --gradient-primary-button: linear-gradient(99.8deg, #003d9b 0%, #0052cc 100%);
+}
+
+@layer utilities {
+  .bg-primary-gradient {
+    background: var(--gradient-primary-button);
+  }
 }

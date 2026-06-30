@@ -3,4 +3,5 @@ export const pages = {
   Signup: 'signup',
   Home: 'home',
   Projects: 'projects',
+  ForgetPassword: 'forgetpassword',
 } as const;
