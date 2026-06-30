@@ -4,8 +4,8 @@
 @theme {
   /* ========= Colors ========= */
 
-  // --color-primary: #003d9b;
-
+  
+  --color-primary2:#fff;
   --color-background: #f9f9ff;
 
   --color-input: #d7e2ff;
@@ -29,6 +29,7 @@
 
   --color-green-004E32: #004e32;
   --color-green-82F9BE: #82F9BE;
+  --color-green-005235: #005235;
 
   --color-red-BA1A1A: #ba1a1a;
 
@@ -52,14 +53,13 @@
 
   /* ========= Gradients ========= */
 
-  --gradient-primary-button:
-    linear-gradient(99.8deg, #003d9b 0%, #0052cc 100%);
+    // --color-primary: #003d9b;
 }
 
 /* ========= Reusable Utility Classes ========= */
 
 @layer utilities {
   .bg-primary-gradient {
-    background: var(--gradient-primary-button);
+    background: linear-gradient(99.8deg, #003d9b 0%, #0052cc 100%);
   }
 }
