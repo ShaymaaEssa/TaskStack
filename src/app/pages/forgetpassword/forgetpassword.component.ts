@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './forgetpassword.component.html',
-  styleUrl: './forgetpassword.component.scss',
+  styleUrl: './forgetpassword.component.scss'
 })
-export class ForgetpasswordComponent {}
+export class ForgetpasswordComponent {
+
+}
