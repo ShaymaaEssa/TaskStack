@@ -8,10 +8,16 @@ describe('ForgetpasswordComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+<<<<<<< HEAD
       imports: [ForgetpasswordComponent]
     })
     .compileComponents();
     
+=======
+      imports: [ForgetpasswordComponent],
+    }).compileComponents();
+
+>>>>>>> forgetpassword
     fixture = TestBed.createComponent(ForgetpasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
