@@ -4,8 +4,7 @@
 @theme {
   /* ========= Colors ========= */
 
-  
-  --color-primary2:#fff;
+  --color-primary2: #fff;
   --color-background: #f9f9ff;
 
   --color-input: #d7e2ff;
@@ -28,32 +27,26 @@
   --color-label: #434654;
 
   --color-green-004E32: #004e32;
-  --color-green-82F9BE: #82F9BE;
+  --color-green-82F9BE: #82f9be;
   --color-green-005235: #005235;
 
   --color-red-BA1A1A: #ba1a1a;
 
   /* ========= Fonts ========= */
 
-//   --font-sans: 'Inter', sans-serif;
+  //   --font-sans: 'Inter', sans-serif;
 
-//   /* ========= Shadows ========= */
+  //   /* ========= Shadows ========= */
 
   --shadow-button:
-    0 4px 6px -4px rgba(0, 61, 155, 0.1),
-    0 10px 15px -3px rgba(0, 61, 155, 0.1);
+    0 4px 6px -4px rgba(0, 61, 155, 0.1), 0 10px 15px -3px rgba(0, 61, 155, 0.1);
 
   --shadow-card: 0 24px 48px rgba(4, 27, 60, 0.06);
 
   --shadow-maincontent-card: 0 24px 48px -12px rgba(4, 27, 60, 0.06);
 
   --shadow-navbar-image: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --backdrop-filter: blur(12px)
-
-
-  /* ========= Gradients ========= */
-
-    // --color-primary: #003d9b;
+  --backdrop-filter: blur(12px) /* ========= Gradients ========= */; // --color-primary: #003d9b;
 }
 
 /* ========= Reusable Utility Classes ========= */
