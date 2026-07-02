@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
           );
         }
         setTimeout(() => {
-          localStorage.setItem(environment.token, res.refresh_token);
-          localStorage.setItem(environment.accessToken, res.access_token);
+          localStorage.setItem(environment.token, res.access_token);
+          localStorage.setItem(environment.refreshToken, res.refresh_token);
           this.router.navigate([pages.Projects]);
         }, 1000);
       },

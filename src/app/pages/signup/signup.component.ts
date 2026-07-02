@@ -107,8 +107,8 @@ export class SignupComponent implements OnInit {
       next: (response) => {
         console.log('Signup successful:', response);
         alert('Signup successful!');
-        localStorage.setItem(environment.token, response.refresh_token);
-        localStorage.setItem(environment.accessToken, response.access_token);
+        localStorage.setItem(environment.token, response.access_token);
+        localStorage.setItem(environment.refreshToken, response.refresh_token);
 
         this.router.navigate([pages.Projects]);
       },

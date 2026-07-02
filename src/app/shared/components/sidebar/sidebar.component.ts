@@ -37,7 +37,7 @@ export class SidebarComponent implements OnInit {
       next: () => {
         localStorage.removeItem(environment.token);
         localStorage.removeItem(environment.tokenExpireDate);
-        localStorage.removeItem(environment.accessToken);
+        localStorage.removeItem(environment.refreshToken);
 
         this.router.navigate(['/login']);
       },

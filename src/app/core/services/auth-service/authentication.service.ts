@@ -68,4 +68,17 @@ export class AuthenticationService {
       { headers },
     );
   }
+
+  forgetPassword(email: string): Observable<void> {
+    return this.httpClient.post<void>(
+      `${environment.baseURL}/auth/v1/recover`,
+      { email: email },
+      {
+        headers: {
+          apikey: environment.key,
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+  }
 }
